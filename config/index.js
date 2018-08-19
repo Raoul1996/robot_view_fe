@@ -71,7 +71,7 @@ module.exports = {
     ak: process.env.ak,
     sk: process.env.sk,
     ssl: process.env.npm_config_ssl,
-    AssetsRoot: 'http://asset.raoul1996.cn/',
+    AssetsRoot: 'https://asset.raoul1996.cn/',
     bucket: 'vue-buck',
     path: ''
   }
