@@ -1,0 +1,50 @@
+language: node_js
+sudo: false
+node_js:
+- '8.11.3'
+# 多环境构建
+# - '10'
+# 缓存依赖
+cache:
+  directories:
+    - $HOME/.npm
+before_install:
+- export TZ='Asia/Shanghai' # 更改时区
+#- chmod +x qshell
+#- ./qshell account $ak $sk
+install:
+# - npm i -g codecov
+- npm i -g npm
+- npm install
+
+before_script:
+
+
+script:
+- npm run lint
+
+after_success:
+- npm run upload
+# - codecov -t $CODECOV_TOKEN
+#- ./qshell qupload 16 .qshell.json
+# 移动到打包好的目录中
+- cd ./dist
+- rm -rf static
+- cd ..
+
+after_script:
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  local-dir: dist
+  on:
+    branch: master
+branches:
+  only:
+  - master
+env:
+  global:
+    - name="robot_view_fe"
