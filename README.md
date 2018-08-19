@@ -1,4 +1,5 @@
 # robot_view_fe
+[![Build Status](https://travis-ci.org/Raoul1996/robot_view_fe.svg?branch=master)](https://travis-ci.org/Raoul1996/robot_view_fe)
 
 > robot_view_fe project base on Vue.js
 
