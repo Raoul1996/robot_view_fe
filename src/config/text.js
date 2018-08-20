@@ -91,6 +91,8 @@ export const content = {
             title: "异常考勤信息", key: 'abnormal'
           }, {
             title: "个人考勤信息", key: 'person'
+          }, {
+            title: "轨迹图",key: 'orbit'
           }]
         },
         {

@@ -41,16 +41,6 @@
         chartSettings: this.setting
       }
     },
-    watch: {
-      charts() {
-        this.chartData.rows = this.charts
-      }
-    },
-    created() {
-      this.chartData = {
-        rows: this.charts
-      }
-    }
   }
 </script>
 

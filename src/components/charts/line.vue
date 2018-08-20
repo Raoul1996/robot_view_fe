@@ -45,16 +45,6 @@
         //   ]
         // }
       }
-    },
-    watch: {
-      charts() {
-        this.chartData.rows = this.charts
-      }
-    },
-    created() {
-      this.chartData = {
-        rows: this.charts
-      }
     }
     // mounted() {
     //   this.chartData.rows = this.data

@@ -16,7 +16,7 @@ const Level = () => import(/* webpackChunkName: "analysis" */ 'pages/charts/leve
 const Daily = () => import(/* webpackChunkName: "analysis" */ 'pages/charts/daily.vue')
 const Every = () => import(/* webpackChunkName: "analysis" */ 'pages/charts/every.vue')
 const Abnormal = () => import(/* webpackChunkName: "analysis" */ 'pages/charts/abnormal.vue')
-
+const Orbit = () => import(/* webpackChunkName: "analysis" */ 'pages/charts/orbit.vue')
 Vue.use(Router)
 /**
  * @param requireAuth: 是否需要在登录之后才能进
@@ -79,6 +79,11 @@ const router = new Router({
           path: 'abnormal', meta: {
             requireAuth: true
           }, component: Person
+        },
+        {
+          path: 'orbit', meta: {
+            requireAuth: true
+          }, component: Orbit
         }
       ]
     },
@@ -123,20 +128,21 @@ const router = new Router({
 })
 router.beforeResolve((to, from, next) => {
   // 判断该路由是否需要登录权限
-  if (to.meta.requireAuth) {
-    // 通过vuex state获取当前的token是否存在
-    if (store.state.login) {
-      next()
-    } else {
-      next({
-        path: '/login',
-        // 将跳转的路由path作为参数，登录成功后跳转到该路由
-        query: {redirect: to.fullPath}
-      })
-    }
-  } else {
-    next()
-  }
+  next()
+  // if (to.meta.requireAuth) {
+  //   // 通过vuex state获取当前是否登录
+  //   if (store.state.login) {
+  //     next()
+  //   } else {
+  //     next({
+  //       path: '/login',
+  //       // 将跳转的路由path作为参数，登录成功后跳转到该路由
+  //       query: {redirect: to.fullPath}
+  //     })
+  //   }
+  // } else {
+  //   next()
+  // }
 })
 // router.go({
 //   path: '/vote/doing',

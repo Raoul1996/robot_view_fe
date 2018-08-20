@@ -1,9 +1,9 @@
 <template lang="pug">
-  ve-pie(:data="chartData", :settings="chartSettings", :events="chartEvents")
+  ve-scatter(:data="chartData", :settings="chartSettings", :events="chartEvents", :extend="extend", :tooltip-visible="true", :legend-visible="false")
 </template>
 <script>
   export default {
-    name: 'v-pie',
+    name: 'v-scatter',
     props: {
       charts: {
         type: Array,
@@ -16,6 +16,9 @@
       setting: {
         type: Object,
         required: true
+      },
+      extend: {
+        type:[Object,Array]
       }
     },
     data() {
