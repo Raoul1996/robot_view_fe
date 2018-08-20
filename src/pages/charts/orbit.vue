@@ -1,44 +1,36 @@
 <template>
   <div>
-    <v-scatter :columns="columns" :charts="rows" :setting="setting" :extend="extend"></v-scatter>
+    <v-muti-scatter :options="scatter"></v-muti-scatter>
   </div>
+
 </template>
 
 <script>
-  import VScatter from '../../components/charts/scatter'
+  import VMutiScatter from '../../components/charts/muti-scatter'
 
   export default {
     name: 'orbit',
-    components: { VScatter },
+    components: { VMutiScatter },
     data() {
       return {
-        setting:{
-          metrics: ['x','y'],
-          // 横轴
-          dimension: ['t'],
-        },
-        extend: {
+        scatter: {
+          title: {
+            text: 'robot 运行轨迹'
+          },
           xAxis: {
-            axisLine: {
-              show: true
-            },
-            axisTick: {
-              show: true
-            },
             splitLine: {
-              show: true
-            },
+              lineStyle: {
+                type: 'dashed'
+              }
+            }
           },
           yAxis: {
-            axisLine: {
-              show: true
-            },
-            axisTick: {
-              show: true
-            },
             splitLine: {
-              show: true
-            }
+              lineStyle: {
+                type: 'dashed'
+              }
+            },
+            scale: true
           },
           series: [{
             symbolSize: 20,
@@ -57,15 +49,7 @@
             ],
             type: 'scatter'
           }]
-        },
-        columns: ['x', 'y'],
-        rows: [
-          { t: 1, x: 1, y: 2 },
-          { t: 2, x: 1.05, y: 2.1 },
-          { t: 3, x: 1.05, y: 2.2 },
-          { t: 4, x: 1.1, y: 2.3 },
-          { t: 5, x: 1.3, y: 2.2 },
-        ]
+        }
       }
     }
   }

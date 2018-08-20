@@ -83,7 +83,7 @@ const router = new Router({
         {
           path: 'orbit', meta: {
             requireAuth: true
-          }, component: Orbit
+          }, component:Orbit
         }
       ]
     },

@@ -5,7 +5,10 @@ import App from './App'
 import router from './router'
 // import { routerMode } from './config/env'
 import VCharts from 'v-charts'
+import ECharts from 'vue-echarts/components/ECharts'
 import store from './store'
+import 'echarts/lib/chart/scatter'
+import 'echarts/lib/component/tooltip'
 // import './config/rem'
 import {
   Button,
@@ -69,3 +72,4 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 
+Vue.component('chart', ECharts)
